@@ -34,9 +34,10 @@ function CodeEditor({
   currentPadding,
 }: CodeEditorProps) {
   const [width, setWidth] = React.useState(1000);
-  const [height, setHeight] = React.useState<number | null>(500);
+  const [height, setHeight] = React.useState<number | null>(400);
   const [title, setTitle] = React.useState("App");
   const [code, setCode] = React.useState(initialCode);
+  const [fontSize, setFontSize] = React.useState(16);
 
   const [extension, setExtension] = React.useState(".js");
 
@@ -61,7 +62,9 @@ function CodeEditor({
   };
 
   const updateSize = () => {
-    setWidth(window.innerWidth);
+    const newWidth = window.innerWidth;
+    setWidth(newWidth);
+    setFontSize(newWidth < 640 ? 14 : 16);
   };
 
   useEffect(() => {
@@ -148,7 +151,7 @@ function CodeEditor({
         <AceEditor
           value={code}
           name="UNIQUE_ID_OF_DIV"
-          fontSize={16}
+          fontSize={fontSize}
           theme={theme}
           mode={language.toLocaleLowerCase()}
           showGutter={false}

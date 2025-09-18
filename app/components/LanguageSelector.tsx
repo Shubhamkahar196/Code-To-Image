@@ -34,20 +34,20 @@ function LanguageSelector({
 
   return (
     <OutsideClickHandler onOutsideClick={() => setShowDropdown(false)}>
-      <div onClick={toggleDropdown}>
+      <div onClick={toggleDropdown} className="w-full max-w-[120px]">
         <p className="py-[5px] text-sm font-medium">Language</p>
-        <div className="dropdown-title capitalize w-full sm:w-[120px] hover:text-slate-50 transition-all duration-300 ease-in-out">
+        <div className="dropdown-title capitalize w-full sm:w-[120px] hover:text-slate-50 transition-all duration-300 ease-in-out flex justify-between items-center">
           {language}
           <ChevronDown />
         </div>
 
         {showDropdown && (
-          <div className="dropdown-menu w-full sm:w-[120px] top-[94px]">
+          <div className="dropdown-menu w-full sm:w-[120px] top-[94px] max-h-60 overflow-auto">
             {languages.map((lang, i) => {
               return (
                 <div key={i}>
                   <button
-                    className="dropdown-item text-left hover:text-slate-50 transition-all duration-300 ease-in-out"
+                    className="dropdown-item text-left hover:text-slate-50 transition-all duration-300 ease-in-out w-full"
                     onClick={() => handleLanguageChange(lang.name)}
                   >
                     {lang.name}

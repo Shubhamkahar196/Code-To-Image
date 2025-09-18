@@ -17,7 +17,7 @@ function PaddingSelector({
   };
 
   return (
-    <div>
+    <div className="w-full max-w-[200px]">
       <p className="py-[5px] text-sm font-medium">Padding Selector</p>
       <div className="flex flex-wrap gap-2 sm:gap-6">
         {paddings.map((padding, i) => {
@@ -25,7 +25,7 @@ function PaddingSelector({
             <button
               key={i}
               onClick={() => changePadding(padding)}
-              className={`h-[37px] flex items-center justify-center text-sm px-1 sm:px-2 cursor-pointer
+              className={`h-[37px] flex items-center justify-center text-sm px-1 sm:px-2 cursor-pointer min-w-[40px]
                 ${
                   currentPadding === padding &&
                   "bg-[#3C3C3C] text-white rounded-md"

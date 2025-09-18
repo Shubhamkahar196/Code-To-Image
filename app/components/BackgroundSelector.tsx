@@ -25,9 +25,9 @@ function BackgroundSelector({
 
   return (
     <OutsideClickHandler onOutsideClick={() => setShowDropdown(false)}>
-      <div className="bg-selector relative" onClick={toggleDropdown}>
+      <div className="bg-selector relative w-full max-w-[62px]" onClick={toggleDropdown}>
         <p className="py-[5px] text-sm font-medium">Theme Selector</p>
-        <div className="dropdown-title w-full sm:w-[62px]">
+        <div className="dropdown-title w-full sm:w-[62px] flex justify-between items-center">
           <div
             className="rounded-full w-[20px] h-[20px]"
             style={{
@@ -37,13 +37,13 @@ function BackgroundSelector({
           <ChevronDown />
         </div>
         {showDropdown && (
-          <div className="dropdown-menu top-[74px] w-full sm:w-[62px] rounded-full flex flex-col gap-2">
+          <div className="dropdown-menu top-[74px] w-full sm:w-[62px] rounded-full flex flex-col gap-2 max-h-60 overflow-auto">
             {backgrounds.map((bg, i) => {
               return (
                 <div
                   key={i}
                   onClick={() => handleBackgroundChange(bg)}
-                  className="w-[20px] h-[20px] rounded-full"
+                  className="w-[20px] h-[20px] rounded-full cursor-pointer"
                   style={{ background: bg }}
                 ></div>
               );
