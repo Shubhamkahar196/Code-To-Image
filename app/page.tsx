@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState, useRef } from "react";
 import CodeEditor from "./components/CodeEditor";
@@ -9,33 +8,34 @@ import BackgroundSelector from "./components/BackgroundSelector";
 import PaddingSelector from "./components/PaddingSelector";
 import { Download } from "lucide-react";
 import Footer from "./components/Footer";
-import html2canvas from "html2canvas-pro"; 
-
+import html2canvas from "html2canvas-pro";
 export default function Home() {
   const editorRef = useRef(null);
   const [language, setLanguage] = useState(languages[0].name);
   const [theme, setTheme] = useState(themes[0]);
   const [background, setBackground] = useState(backgrounds[0]);
   const [activeIcon, setActiveIcon] = useState(languages[0].icon);
-  const [paddings, setPaddings] = useState(["1rem", "2rem", "3rem", "4rem"]);
+  const [paddings] = useState(["1rem", "2rem", "3rem", "4rem"]);
   const [currentPadding, setCurrentPadding] = useState(paddings[2]);
 
   const exportPng = async () => {
     const editorElem = editorRef.current;
 
     if (editorElem) {
-      //hide elements
-      const handleElems = document.querySelectorAll(".handle") as any;
-      const cursorElem = document.querySelector(".ace_cursor") as any;
-      const codetitle = document.querySelector(".code-title") as any;
-      const codeEditor = document.querySelector(".ace_editor") as any;
+      // Hide elements
+      const handleElems = document.querySelectorAll(".handle");
+      const cursorElem = document.querySelector(".ace_cursor");
+      const codetitle = document.querySelector(".code-title");
+      const codeEditor = document.querySelector(".ace_editor");
 
-      handleElems.forEach((elem: any) => {
-        elem.style.display = "none";
+      handleElems.forEach((elem) => {
+        if (elem instanceof HTMLElement) {
+          elem.style.display = "none";
+        }
       });
-      cursorElem.style.display = "none";
-      codetitle.style.boxShadow = "none";
-      codeEditor.style.boxShadow = "none";
+      if (cursorElem instanceof HTMLElement) cursorElem.style.display = "none";
+      if (codetitle instanceof HTMLElement) codetitle.style.boxShadow = "none";
+      if (codeEditor instanceof HTMLElement) codeEditor.style.boxShadow = "none";
 
       const canvas = await html2canvas(editorElem);
       const image = canvas
@@ -47,13 +47,17 @@ export default function Home() {
       link.href = image;
       link.click();
 
-      //show elements
-      handleElems.forEach((elem: any) => {
-        elem.style.display = "block";
+      // Show elements
+      handleElems.forEach((elem) => {
+        if (elem instanceof HTMLElement) {
+          elem.style.display = "block";
+        }
       });
-      cursorElem.style.display = "block";
-      codetitle.style.boxShadow = "0 3px 10px rgba(0, 0, 0, 0.2)";
-      codeEditor.style.boxShadow = "2px 3px 10px rgba(0, 0, 0, 0.2)";
+      if (cursorElem instanceof HTMLElement) cursorElem.style.display = "block";
+      if (codetitle instanceof HTMLElement)
+        codetitle.style.boxShadow = "0 3px 10px rgba(0, 0, 0, 0.2)";
+      if (codeEditor instanceof HTMLElement)
+        codeEditor.style.boxShadow = "2px 3px 10px rgba(0, 0, 0, 0.2)";
     }
   };
 
