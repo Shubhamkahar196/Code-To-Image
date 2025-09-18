@@ -12,6 +12,10 @@ CodeImage is a React-based web application that allows users to write, style, an
 - **Export as PNG:** Export the styled code snippet as a PNG image, including UI elements like file title and language icon.
 - **Responsive UI:** Clean and modern interface with fixed header and footer.
 
+image 
+
+<img width="1246" height="916" alt="screen" src="https://github.com/user-attachments/assets/fdd19f1b-52b7-4ff6-a06a-b9c50077c233" />
+
 ## Installation
 
 1. Clone the repository:
