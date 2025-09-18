@@ -3,7 +3,7 @@ import CodeEditor from "./components/CodeEditor";
 
 export default function Home() {
   return (
-    <main>
+    <main className="h-screen w-full flex items-center justify-center">
       <CodeEditor/>
     </main>
   );
