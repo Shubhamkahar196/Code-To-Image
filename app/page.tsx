@@ -22,7 +22,7 @@ export default function Home() {
     const editorElem = editorRef.current;
 
     if (editorElem) {
-      // Hide elements
+      // Hide elements before export to PNG
       const handleElems = document.querySelectorAll(".handle");
       const cursorElem = document.querySelector(".ace_cursor");
       const codetitle = document.querySelector(".code-title");
@@ -47,7 +47,7 @@ export default function Home() {
       link.href = image;
       link.click();
 
-      // Show elements
+      // Show elements after export
       handleElems.forEach((elem) => {
         if (elem instanceof HTMLElement) {
           elem.style.display = "block";
@@ -63,6 +63,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-between px-4">
+      {/* Header with responsive flex wrap and spacing */}
       <header
         className="mt-6 flex flex-wrap gap-2 sm:gap-4 md:gap-6 w-full max-w-[940px] p-2 sm:p-3 md:p-5 fixed top-0 left-1/2 -translate-x-1/2
          z-10 bg-[#191919] rounded border border-[#3C3C3C] shadow-md"
@@ -86,6 +87,7 @@ export default function Home() {
           setCurrentPadding={setCurrentPadding}
         />
 
+        {/* Export button aligned to right */}
         <div className="export-btn self-center ml-auto">
           <button
             className="flex items-center gap-3 py-2 px-3 bg-blue-400 rounded-md text-sm text-black
@@ -99,6 +101,7 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Code editor container with responsive top margin and max width */}
       <div className="code-editor-ref mt-[14rem] sm:mt-[10rem] md:mt-[8rem] lg:mt-[6rem] px-2 sm:px-0 w-full max-w-[940px]" ref={editorRef}>
         <CodeEditor
           language={language}
@@ -109,6 +112,7 @@ export default function Home() {
         />
       </div>
 
+      {/* Footer component */}
       <Footer />
     </main>
   );

@@ -78,6 +78,7 @@ function CodeEditor({
   const getMaxWidth = () => (width < 640 ? width - 40 : 1000);
 
   return (
+    // Resizable container for code editor with responsive min/max widths and height
     <Resizable
       minHeight={466}
       minWidth={getMinWidth()}
@@ -98,6 +99,7 @@ function CodeEditor({
           padding: currentPadding,
         }}
       >
+        {/* Resize handles */}
         <div
           className="handle handle-top absolute left-1/2 translate-x-[-50%] top-[-4px] w-2 h-2 
             rounded-full bg-slate-300 hover:bg-slate-50"
@@ -115,6 +117,7 @@ function CodeEditor({
         bg-slate-300 hover:bg-slate-50 "
         ></div>
 
+        {/* Code title bar with file name input and icon */}
         <div
           className="
             code-title h-[52px] px-4 flex items-center justify-between
@@ -148,6 +151,7 @@ function CodeEditor({
               <Image src={icon} width={33} height={33} alt="" /> 
           </div>
         </div>
+        {/* Ace code editor with responsive font size and height */}
         <AceEditor
           value={code}
           name="UNIQUE_ID_OF_DIV"
