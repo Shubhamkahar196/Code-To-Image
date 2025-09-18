@@ -55,8 +55,7 @@ function CodeEditor({
     setTitle(newTitle);
   };
 
-  // @ts-ignore
-  const handleResize = (evt, direction, ref, pos) => {
+  const handleResize = (evt: MouseEvent | TouchEvent, direction: string, ref: HTMLElement) => {
     const newHeight = ref.style.height;
     setHeight(parseInt(newHeight, 10));
   };
@@ -137,7 +136,9 @@ function CodeEditor({
             className="icon flex justify-center items-center p-1 bg-black
                bg-opacity-30 rounded-sm"
           >
-            <img src={icon} className="w-[33px]" alt="" />
+            {/* <img src={icon} className="w-[33px]" alt="" /> */}
+               
+              <Image src={icon} width={33} height={33} alt="" /> 
           </div>
         </div>
         <AceEditor
