@@ -5,7 +5,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="flex items-center gap-10 py-16">
+    <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-10 py-8 sm:py-16">
       <Link
         className="text-sm font-medium hover:text-slate-200 ease-in-out transition-all duration-500"
         href="https://x.com/Shubhamkah100?t=szI5NBRmVqGeby7teTlvSQ&s=09"

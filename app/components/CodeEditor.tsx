@@ -70,11 +70,15 @@ function CodeEditor({
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
+  // Responsive min and max widths for Resizable
+  const getMinWidth = () => (width < 640 ? 300 : 510);
+  const getMaxWidth = () => (width < 640 ? width - 40 : 1000);
+
   return (
     <Resizable
       minHeight={466}
-      minWidth={510}
-      maxWidth={1000}
+      minWidth={getMinWidth()}
+      maxWidth={getMaxWidth()}
       defaultSize={{
         width: width,
         height: height || 500,

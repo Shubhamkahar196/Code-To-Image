@@ -36,6 +36,13 @@ body {
   line-height: 1.5rem !important;
 }
 
+@media (max-width: 640px) {
+  .ace_editor {
+    font-size: 14px !important;
+    line-height: 1.3rem !important;
+  }
+}
+
 .ace_content {
   width: 100% !important;
   top: 12px !important;
