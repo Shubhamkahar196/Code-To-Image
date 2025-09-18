@@ -17,7 +17,7 @@ CodeImage is a React-based web application that allows users to write, style, an
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Shubhamkahar196/Code-To-Image
    cd codeimage
    ```
 
