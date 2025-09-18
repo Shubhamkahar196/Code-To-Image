@@ -23,7 +23,7 @@ function Footer() {
         <span className="pl-1 font-medium text-slate-200">Shubham kahar</span>
       </Link>
       <Link
-        href=""   //github link
+        href="https://github.com/Shubhamkahar196/Code-To-Image"   //github link
         className="flex items-center text-sm font-medium hover:text-slate-200 ease-in-out transition-all duration-500"
       >
         Source Code Here &nbsp;&#129109;
